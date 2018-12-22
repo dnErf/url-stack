@@ -30,8 +30,8 @@ function Content() {
               m('input.itxt.mh3[type=text]'+b`width:60%;`
               ,{
                 'name': 'url' ,
+                'value': txtUrl ,
                 'onkeyup' (e) {
-                  e.preventDefault()
                   if (e.keyCode === 13) {
                     add({
                       url: txtUrl ,
@@ -46,7 +46,6 @@ function Content() {
               ,{
                 ...fc('-plus-margin') ,
                 'onclick' (e) {
-                  e.preventDefault()
                   add({
                     url: txtUrl ,
                     description: ''
@@ -57,7 +56,6 @@ function Content() {
               m('span.btn-i.mh3'
               ,{
                 'onclick' (e) {
-                  e.preventDefault()
                   set_toggle = !set_toggle
                 }
               },[m('i.fas.fa-search')]) ,
@@ -66,8 +64,8 @@ function Content() {
               m('input.itxt[type=text].mh3'+b`width:60%;`
               ,{
                 'name' : 'search' ,
+                'value' : txtTerm ,
                 'onkeyup' (e) {
-                  e.preventDefault()
                   if (e.keyCode === 13) {
                     search(txtTerm)
                   }
@@ -79,7 +77,6 @@ function Content() {
               ,{
                 ...fc('-plus-margin') ,
                 'onclick' (e) {
-                  e.preventDefault()
                   search(txtTerm)
                   txtTerm = ''
                 }
@@ -87,7 +84,6 @@ function Content() {
               m('span.btn-i.mh3'
               ,{
                 'onclick' (e) {
-                  e.preventDefault()
                   set_toggle = !set_toggle
                 }
               },[m('i.far.fa-bookmark')]) ,
@@ -96,7 +92,6 @@ function Content() {
               m('button.btn.mh3'+b`min-width:8rem;`
               ,{
                 'onclick' (e) {
-                  e.preventDefault()
                   clear()
                 }
               }
@@ -104,7 +99,6 @@ function Content() {
               m('span.btn-i',
               {
                 'onclick' (e) {
-                  e.preventDefault()
                   set_toggle = !set_toggle
                 }
               },[m('i.fas.fa-cog')]) ,
