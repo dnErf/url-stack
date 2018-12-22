@@ -1,0 +1,27 @@
+{
+  "name": "url_stack",
+  "version": "0.5.0",
+  "description": "one way of storing url and making notes about it",
+  "main": "dist/index.html",
+  "scripts": {
+    "dev": "node scripts/dev",
+    "build": "node scripts/build"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "bss": "^1.5.0",
+    "class-func-style": "^1.0.0",
+    "fs-extra": "7.0.0",
+    "marked": "^0.5.2",
+    "mithril": "^2.0.0-rc.3",
+    "rollup": "0.66.5",
+    "rollup-plugin-buble": "0.19.4",
+    "rollup-plugin-commonjs": "9.1.8",
+    "rollup-plugin-filesize": "4.0.1",
+    "rollup-plugin-node-resolve": "3.4.0",
+    "rollup-plugin-replace": "2.1.0",
+    "rollup-plugin-scss": "0.4.0",
+    "rollup-plugin-terser": "3.0.0",
+    "wright": "1.2.5"
+  }
+}
