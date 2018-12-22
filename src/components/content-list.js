@@ -4,43 +4,36 @@ import cfs from 'class-func-style'
 
 function ContentList () {
   let
-    collapse_toggle = false
+    collapse_toggle = true
     , desc_toggle = false
     , txtDesc = ''
     , htmlDesc = ''
     , txtIndx = null 
     , fc = cfs({
-        '-item': b`
-          line-height: 4rem;
-          vertical-align: middle;
-          margin    : 1rem;
-          padding   : 1rem;
-        `
-        .$hover(`
-            background-color: #f9f9f9;
-        `) ,
+        '-item': b`line-height:4rem;vertical-align:middle;margin:1rem;padding:1rem;`
+          .$hover(`
+              background-color: #f9f9f9;
+          `) ,
         '-item-border'  : b`border-style:solid;border-color:gray;border-width:.5px .2rem .5px .2rem;` ,
         '-remove'       : b`float:right;` ,
         '-desc'         : b`background-color:#f9f9f9;font-size:1.6rem;` ,
         '-desc-input'   : b`resize:none;min-height:8rem;padding:.5rem;width:98%;` ,
         '-url'          : b`cursor:pointer;font-size:1.8rem;margin-left:1rem;` ,
       })
-    
   const 
     ContentList = {}
   ContentList.view = function(v) {
     let 
-      { bookmarks , descMarked , remove} = v.attrs
-      
+      { bookmarks , descMarked , remove} = v.attrs   
     return (
       // [ list -
       m('.dsply-.-list',[
         bookmarks.map((value,indx) => {
           let 
-            collapse_value = collapse_toggle && indx === txtIndx // collapse are not working right
+            collapse_value = indx === txtIndx
             , collapse = fc({
-              'fa-chevron-circle-down' : collapse_value ,
-              'fa-chevron-circle-right' : !collapse_value
+              'fa-chevron-circle-down' : collapse_value && collapse_toggle ,
+              'fa-chevron-circle-right' : !(collapse_value && collapse_toggle)
             })
           if (value.description!=='') {
             htmlDesc = value.description
@@ -51,8 +44,13 @@ function ContentList () {
               {
                 onclick (e) {
                   e.preventDefault()
+                  if (txtIndx === indx) {
+                    collapse_toggle = !collapse_toggle
+                  }
+                  else {
+                    collapse_toggle = true
+                  }
                   txtIndx = indx
-                  collapse_toggle = !collapse_toggle
                 }
               },[m('i.fas ',collapse)]) ,
               m('span.mh3.mv1',[m('a',{...fc('-url')},[value.url])]) ,
@@ -64,7 +62,7 @@ function ContentList () {
                   remove(indx)
                 }
               },[m('i.fas.fa-trash-alt')]) ,
-              collapse_value
+              collapse_value && collapse_toggle
                 ? m('.desc',{...fc('-desc','ma3','pa3')},
                   desc_toggle && indx === txtIndx
                   ? [

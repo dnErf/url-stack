@@ -1,6 +1,6 @@
 {
   "name": "url_stack",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "one way of storing url and making notes about it",
   "main": "dist/index.html",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "bss": "^1.5.0",
+    "bss": "^1.5.1",
     "class-func-style": "^1.0.0",
     "fs-extra": "7.0.0",
     "marked": "^0.5.2",

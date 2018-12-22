@@ -14,13 +14,11 @@ function Content() {
         '-plus-margin' : b`margin-left:-4rem;margin-right:4rem;` ,
       })
 
-  const content = {}
-
+  const 
+    content = {}
   content.view = function(v) {
-
     let 
       { add , clear , descMarked , search , remove , reset , model } = v.attrs
-      
     return (
       m('.content.fcl',[
         // form -
