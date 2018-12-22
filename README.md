@@ -2,7 +2,7 @@
 > one way of storing url and making notes about it
 
 <p align="center">
-    <img src="https://github.com/dnErf/url-Stack/tree/master/assets/urlStack.gif" alt="app demo">
+    <img src="https://github.com/dnErf/url-stack/blob/master/assets/urlStack.gif" alt="app demo">
 </p>
 
 ### Libraries Used
