@@ -5,7 +5,7 @@ b.css({
   'html'  : b`font-size:62.50%;height:100%;` ,
   'body'  : b`font: 2rem 'Noto Sans', sans-serif;height:100%;` ,
   'br'    : b`clear:both;` ,
-  'a'     : b`cursor:pointer;` ,
+  'a'     : b`cursor:pointer;color:#064a5a;text-decoration:none;` ,
   'p'     : b`padding:0rem;margin:0rem;line-height:2.2rem;` ,
   '.app'  : b`display:flex;flex-direction:row;width:100%;height:100%;` ,
   'td,th' : b`border-bottom:.1rem solid #eee;padding:.6rem 1.2rem;`
@@ -13,8 +13,8 @@ b.css({
 
 // menu
 b.css({
-  '.menu' : b`width:20rem;padding:2rem;background-color:#0d98ba;` , // hover #0a718a
-  '.menu-header' : b`color:#effbfe;` ,
+  '.menu'              : b`width:16rem;padding:2rem;background-color:#0d98ba;` , // hover #0a718a
+  '.menu-header'       : b`color:#effbfe;` ,
   '.menu-header:hover' : b`background-color:#0b85a2;opacity:.9;` ,
 })
 

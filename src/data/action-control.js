@@ -28,6 +28,7 @@ const ac = (function(dm,sm) {
     descMarked (desc,idx) {
       let nhtml = marked(desc)
         data[selectedData].bookmarks[idx].description = nhtml
+        data[selectedData].bookmarks[idx].rawDesc = desc
         updateLocalStorage()
       return nhtml
     } ,

@@ -54,7 +54,7 @@ function Content() {
               ,{
                 ...fc('-i-bookmark-margin') ,
                 'onclick' (e) {
-                  add({url:txtInput,description:''})
+                  add({'url':txtInput,'description':'','rawDesc':''})
                   txtInput = ''
                 }
               },[

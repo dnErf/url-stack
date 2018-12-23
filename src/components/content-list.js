@@ -92,7 +92,8 @@ function ContentList () {
                       ,{
                         'onclick' (e) {
                           e.preventDefault()
-                          txtDesc = e.target.textContent
+                          // txtDesc = e.target.textContent
+                          txtDesc = value.rawDesc
                           desc_toggle = !desc_toggle
                         }
                       },[value.description === ''? '...' : m.trust(htmlDesc)])
