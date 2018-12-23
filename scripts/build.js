@@ -4,7 +4,7 @@ const rollup = require('rollup')
     , filesize = require('rollup-plugin-filesize')
     , replace = require('rollup-plugin-replace')
     , terser = require('rollup-plugin-terser').terser
-    , buble = require('rollup-plugin-buble')
+    // , buble = require('rollup-plugin-buble')
     , fs = require('fs-extra')
     , path = require('path')
 
@@ -20,7 +20,7 @@ rollup.rollup({
   plugins: [
     commonJs(),
     nodeResolve(),
-    buble(),
+    // buble(),
     replace({
       'window.m = m': '',
       'b.setDebug(true)': ''
@@ -40,3 +40,4 @@ rollup.rollup({
   fs.moveSync(tmp, target, { overwrite: true })
 )
 .catch(console.error)
+

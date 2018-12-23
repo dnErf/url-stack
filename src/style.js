@@ -1,7 +1,7 @@
-import b from 'bss'
+import b from 'bss';
 
 b.css({
-  '*,*+*,*::before,*::after' : b`border-sizing:borderbox;margin:0;padding:0;` ,
+  '*,*+*,*:before,*:after' : b`borderSizing:borderBox;margin:0;padding:0;` ,
   'html'  : b`font-size:62.50%;height:100%;` ,
   'body'  : b`font: 2rem 'Noto Sans', sans-serif;height:100%;` ,
   'br'    : b`clear:both;` ,

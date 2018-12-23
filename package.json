@@ -3,15 +3,18 @@
   "version": "0.5.1",
   "description": "one way of storing url and making notes about it",
   "main": "dist/index.html",
+  "homepage": "https://dnErf.github.io/url-stack" ,
   "scripts": {
     "dev": "node scripts/dev",
-    "build": "node scripts/build"
+    "build": "node scripts/build",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {},
   "dependencies": {
     "bss": "^1.5.1",
     "class-func-style": "^1.0.0",
     "fs-extra": "7.0.0",
+    "gh-pages": "^2.0.1",
     "marked": "^0.5.2",
     "mithril": "^2.0.0-rc.3",
     "rollup": "0.66.5",
