@@ -15,11 +15,11 @@ function ContentList () {
     , fc = cfs({
         '-item': b`line-height:4rem;vertical-align:middle;margin:1rem;padding:1rem;`
           .$hover(`
-              background-color: #f9f9f9;
+              background-color: #fbfbfb;
           `) ,
         '-item-border'  : b`border-style:solid;border-color:gray;border-width:.5px .2rem .5px .2rem;` ,
         '-remove'       : b`float:right;` ,
-        '-desc'         : b`background-color:#f9f9f9;font-size:1.6rem;` ,
+        '-desc'         : b`background-color:#fcfcfc;font-size:1.6rem;` ,
         '-desc-input'   : b`resize:none;min-height:8rem;padding:.5rem;width:98%;` ,
         '-url'          : b`cursor:pointer;font-size:1.8rem;margin-left:1rem;` ,
       })

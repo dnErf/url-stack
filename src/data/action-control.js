@@ -12,6 +12,7 @@ const ac = (function(dm,sm) {
     data = dm()
     , state = sm()
     , selectedData = 'hrext'
+    , model = data[selectedData]
     , stringe = ''
     , updateLocalStorage = function() {
       stringe = JSON.stringify(data)
@@ -19,7 +20,7 @@ const ac = (function(dm,sm) {
     }
   return {
     state ,
-    model : data[selectedData] ,
+    model ,
     add (url) {
       data[selectedData].bookmarks.push(url)
       updateLocalStorage()
@@ -46,8 +47,9 @@ const ac = (function(dm,sm) {
       updateLocalStorage()
     } ,
     reset () {
-      data = dm(selectedData)
-      this.model = data[selectedData]
+      let
+        ndata = dm(selectedData)
+      data[selectedData].bookmarks = ndata[selectedData].bookmarks
     }
   }
 }(DataModel,StateModel))

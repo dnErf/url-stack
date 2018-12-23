@@ -4,17 +4,17 @@ import cfs from 'class-func-style'
 
 import ContentList from './content-list.js'
 import ToolTip from './util/tool-tip.js'
-import Modal from './util/modal'
 
 function Content() {
 
   let 
-    txtUrl = ''
-    , txtTerm = ''
+    txtInput = ''
     , set_toggle = false
     , fc = cfs({
-        '-header'      : b`color:gray;margin-left:2rem;margin-right:4rem;` ,
-        '-plus-margin' : b`margin-left:-4rem;margin-right:4rem;` ,
+        '-header'             : b`color:gray;margin-left:2rem;margin-right:4rem;` ,
+        '-i-bookmark-margin'  : b`margin-left:-8rem;margin-right:2rem;` ,
+        '-i-search-margin'    : b`margin-left:0rem;margin-right:2rem;` ,
+        '-i-settings-margin'  : b`margin-left:1rem;margin-right:1rem;` ,
       })
 
   const 
@@ -27,85 +27,65 @@ function Content() {
         // form -
         m('.ctrl-.-form.bb.mv1.pv3.content-between', 
           [ 
-            m('span',{...fc('-header')},['URL Stack']) ,
-            m('span.mh3', !set_toggle ? 
-              [ // [ bookmarks -
+            m('span'
+            ,{
+              ...fc('-header') ,
+              'onclick' (e) {
+                reset()
+              }
+            },['URL Stack']) ,
+            // [ textinput -
+            m('span.mh3', [
               m('input.itxt.mh3[type=text]'+b`width:60%;`
               ,{
-                'name': 'url' ,
-                'value': txtUrl ,
-                'onkeyup' (e) {
-                  if (e.keyCode === 13) {
-                    add({
-                      url: txtUrl ,
-                      description: ''
-                    })
-                  }
-                  txtUrl = e.target.value
+                'name':'txtInput' ,
+                'value':txtInput ,
+                'placeholder':'add or search url ...' ,
+                'onkeyup' (e) { 
+                  txtInput = e.target.value
                 } ,
-                'placeholder': 'url...'
+                'onblur' (e) {
+                  if (e.target.value === '') {
+                    reset()
+                  }
+                }
               }) ,
               m('span.btn-i'
               ,{
-                ...fc('-plus-margin') ,
+                ...fc('-i-bookmark-margin') ,
                 'onclick' (e) {
-                  add({
-                    url: txtUrl ,
-                    description: ''
-                  })
-                  txtUrl = ''
-                }}
-              ,[m('i.far.fa-bookmark'),m(ToolTip,{'tip':'bookmark'})]) ,
-              m('span.btn-i.mh3'
-              ,{
-                'onclick' (e) {
-                  set_toggle = !set_toggle
+                  add({url:txtInput,description:''})
+                  txtInput = ''
                 }
-              },[m('i.fas.fa-search'),m(ToolTip,{'tip':'search'})]) ,
-            ] : // - bookmarks ]
-            [ // [ search -
-              m('input.itxt[type=text].mh3'+b`width:60%;`
-              ,{
-                'name' : 'search' ,
-                'value' : txtTerm ,
-                'onkeyup' (e) {
-                  if (e.keyCode === 13) {
-                    search(txtTerm)
-                  }
-                  txtTerm = e.target.value
-                } ,
-                'placeholder': 'seach...'
-              }) ,
+              },[
+                m('i.far.fa-bookmark'),m(ToolTip,{'tip':'bookmark'})
+              ]) ,
               m('span.btn-i'
               ,{
-                ...fc('-plus-margin') ,
+                ...fc('-i-search-margin') ,
                 'onclick' (e) {
-                  search(txtTerm)
-                  txtTerm = ''
+                  search(txtInput)
                 }
-              },[m('i.fas.fa-search'),m(ToolTip,{'tip':'search'})]) ,
-              m('span.btn-i.mh3'
-              ,{
-                'onclick' (e) {
-                  set_toggle = !set_toggle
-                }
-              },[m('i.far.fa-bookmark'),m(ToolTip,{'tip':'bookmark'})]) ,
-            ] // - search ]
-            ), 
-              m('button.btn.mh3'+b`min-width:8rem;`
-              ,{
-                'onclick' (e) {
-                  clear()
-                }
+              },[
+                m('i.fas.fa-search'),m(ToolTip,{'tip':'search'})
+              ])
+            ]) ,
+            // - textinput ]
+            m('button.btn.mh3'+b`min-width:8rem;`
+            ,{
+              'onclick' (e) {
+                clear()
               }
-              ,['Clear']) ,
-              m('span.btn-i',
-              {
-                'onclick' (e) {
-                  set_toggle = !set_toggle
-                }
-              },[m('i.fas.fa-cog'),m(ToolTip,{'tip':'settings'})]) ,
-          ]) ,
+            }
+            ,['Clear']) ,
+            m('span.btn-i',
+            {
+              ...fc('-i-settings-margin') ,
+              'onclick' (e) {
+                set_toggle = !set_toggle
+              }
+            },[m('i.fas.fa-cog'),m(ToolTip,{'tip':'settings'})]) ,
+        ]) ,
         // - form ]
         // [ list -
         m(ContentList,{'bookmarks':model.bookmarks,descMarked,remove})
