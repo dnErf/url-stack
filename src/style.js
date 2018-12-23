@@ -6,8 +6,8 @@ b.css({
   'body'  : b`font: 2rem 'Noto Sans', sans-serif;height:100%;` ,
   'br'    : b`clear:both;` ,
   'a'     : b`cursor:pointer;` ,
-  '.app'  : b`display:flex;flex-direction:row;width:100%;height:100%;`
-  
+  '.app'  : b`display:flex;flex-direction:row;width:100%;height:100%;` ,
+  'td,th' : b`border-bottom:.1rem solid #eee;padding:.6rem 1.2rem;`
 })
 
 // menu

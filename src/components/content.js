@@ -4,6 +4,7 @@ import cfs from 'class-func-style'
 
 import ContentList from './content-list.js'
 import ToolTip from './util/tool-tip.js'
+import Modal from './util/modal'
 
 function Content() {
 

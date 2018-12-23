@@ -2,6 +2,7 @@ import m from 'mithril'
 import b from 'bss'
 import cfs from 'class-func-style'
 
+import MarkdownHelp from './util/markdown-help.js'
 import ToolTip from './util/tool-tip.js'
 
 function ContentList () {
@@ -68,11 +69,12 @@ function ContentList () {
                 ? m('.desc',{...fc('-desc','ma3','pa3')},
                   desc_toggle && indx === txtIndx
                   ? [
-                      m('span.btn-i',[m('i.fab.fa-markdown')]) ,
+                      // m('span.btn-i',[m('i.fab.fa-markdown')]) ,
+                      m(MarkdownHelp) ,
                       m('textarea',
                       {
                         value : txtDesc !== '...' ? txtDesc : '',
-                        ...fc('-desc-input') ,
+                        ...fc('-desc-input','itxtarea') ,
                         'onblur'(e) {
                           e.preventDefault()
                           htmlDesc = descMarked(txtDesc,indx)
@@ -93,7 +95,7 @@ function ContentList () {
                           txtDesc = e.target.textContent
                           desc_toggle = !desc_toggle
                         }
-                      },[htmlDesc === ''? '...' : m.trust(htmlDesc)])
+                      },[value.description === ''? '...' : m.trust(htmlDesc)])
                     ]
                 ) 
               : null
