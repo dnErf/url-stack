@@ -56,7 +56,7 @@ function ContentList () {
                   txtIndx = indx
                 }
               },[m('i.fas ',collapse)]) ,
-              m('span.mh3.mv1',[m(`a[href=${value.url}]`,{...fc('-url')},[value.url])]) ,
+              m('span.mh3.mv1',[m(`a[href=${value.url}][target=blank]`,{...fc('-url')},[value.url])]) ,
               m('span.btn-i'
               ,{
                 ...fc('-remove') ,
