@@ -4,7 +4,7 @@ const rollup = require('rollup')
     , filesize = require('rollup-plugin-filesize')
     , replace = require('rollup-plugin-replace')
     , terser = require('rollup-plugin-terser').terser
-    // , buble = require('rollup-plugin-buble')
+    , buble = require('rollup-plugin-buble')
     , fs = require('fs-extra')
     , path = require('path')
 
@@ -21,6 +21,12 @@ rollup.rollup({
     commonJs(),
     nodeResolve(),
     // buble(),
+    buble({
+      transforms: {
+        dangerousTaggedTemplateString: true
+      },
+      objectAssign: 'Object.assign'
+    }) ,
     replace({
       'window.m = m': '',
       'b.setDebug(true)': ''

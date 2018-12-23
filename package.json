@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node scripts/dev",
     "build": "node scripts/build",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {},
   "dependencies": {
