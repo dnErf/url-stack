@@ -1,7 +1,9 @@
 import m from 'mithril'
 import b from 'bss'
 import cfs from 'class-func-style'
+
 import ContentList from './content-list.js'
+import ToolTip from './util/tool-tip.js'
 
 function Content() {
 
@@ -52,13 +54,13 @@ function Content() {
                   })
                   txtUrl = ''
                 }}
-              ,[m('i.far.fa-bookmark')]) ,
+              ,[m('i.far.fa-bookmark'),m(ToolTip,{'tip':'bookmark'})]) ,
               m('span.btn-i.mh3'
               ,{
                 'onclick' (e) {
                   set_toggle = !set_toggle
                 }
-              },[m('i.fas.fa-search')]) ,
+              },[m('i.fas.fa-search'),m(ToolTip,{'tip':'search'})]) ,
             ] : // - bookmarks ]
             [ // [ search -
               m('input.itxt[type=text].mh3'+b`width:60%;`
@@ -80,13 +82,13 @@ function Content() {
                   search(txtTerm)
                   txtTerm = ''
                 }
-              },[m('i.fas.fa-search')]) ,
+              },[m('i.fas.fa-search'),m(ToolTip,{'tip':'search'})]) ,
               m('span.btn-i.mh3'
               ,{
                 'onclick' (e) {
                   set_toggle = !set_toggle
                 }
-              },[m('i.far.fa-bookmark')]) ,
+              },[m('i.far.fa-bookmark'),m(ToolTip,{'tip':'bookmark'})]) ,
             ] // - search ]
             ), 
               m('button.btn.mh3'+b`min-width:8rem;`
@@ -101,7 +103,7 @@ function Content() {
                 'onclick' (e) {
                   set_toggle = !set_toggle
                 }
-              },[m('i.fas.fa-cog')]) ,
+              },[m('i.fas.fa-cog'),m(ToolTip,{'tip':'settings'})]) ,
           ]) ,
         // - form ]
         // [ list -

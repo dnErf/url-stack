@@ -2,6 +2,8 @@ import m from 'mithril'
 import b from 'bss'
 import cfs from 'class-func-style'
 
+import ToolTip from './util/tool-tip.js'
+
 function ContentList () {
   let
     collapse_toggle = true
@@ -61,7 +63,7 @@ function ContentList () {
                   e.preventDefault()
                   remove(indx)
                 }
-              },[m('i.fas.fa-trash-alt')]) ,
+              },[m('i.fas.fa-trash-alt'),m(ToolTip,{'tip':'remove'})]) ,
               collapse_value && collapse_toggle
                 ? m('.desc',{...fc('-desc','ma3','pa3')},
                   desc_toggle && indx === txtIndx

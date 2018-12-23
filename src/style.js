@@ -51,6 +51,7 @@ b.css({
   '.w-58'             : b`width:58%;` ,
   '.w-40'             : b`width:40%;` ,
   '.content-between'  : b`align-items: middle;` ,
+  '.-tooltip'         : b`background:#0b85a2;border-radius:1rem 0;color:#effbfe;opacity:0;padding:5px 5px;position:absolute;transform:translateX(-60%) translateY(0);transition:all .2s ease;user-select:none;visibility:hidden;white-space:nowrap;` 
 })
 
 // grid
@@ -63,10 +64,11 @@ b.css({
   '.c4'   : b`max-width: calc(100% / 12 * 4);` ,
   '.c5'   : b`max-width: calc(100% / 12 * 5);` ,
   '.c6'   : b`max-width: calc(100% / 2);` ,
-  '@media(max-width:35rem)' : b`.fcl{min-width: 100%;}.fbx{margin: 1rem 0;}` ,
+  
 })
 
 // media queries
 b.css({
-  '@media(max-width:35rem)' : b`.media-hide{display:none;}`
+  '@media(max-width:35rem)' : b`.fcl{min-width: 100%;}.fbx{margin: 1rem 0;}` ,
+  // '@media(max-width:55rem)' : b`.media-hide{display:none;}`
 })
