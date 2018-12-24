@@ -6,8 +6,8 @@ b.css({
   'body'  : b`font: 2rem 'Noto Sans', sans-serif;height:100%;` ,
   'br'    : b`clear:both;` ,
   'a'     : b`cursor:pointer;color:#064a5a;text-decoration:none;` ,
+  'ul'    : b`list-style-type:none;` ,
   'p'     : b`padding:0rem;margin:0rem;line-height:2.2rem;` ,
-  '.app'  : b`display:flex;flex-direction:row;width:100%;height:100%;` ,
   'td,th' : b`border-bottom:.1rem solid #eee;padding:.6rem 1.2rem;`
 })
 
@@ -20,6 +20,7 @@ b.css({
 
 //content
 b.css({
+  '.app'  : b`display:flex;flex-direction:row;width:100%;height:100%;` ,
   '.content' : b`width:100%;padding:1.5rem;`
 })
 
@@ -59,12 +60,12 @@ b.css({
 b.css({
   '.fbx'  : b`width:100%;display:flex;flex-wrap:wrap;flex-direction:row;margin-left:0;margin-right:0;padding-left:0;padding-right:0;` ,
   '.fcl'  : b`flex:1;` ,
-  '.c1'   : b`max-width: calc(100% / 12);` ,
-  '.c2'   : b`max-width: calc(100% / 12 * 2);` ,
-  '.c3'   : b`max-width: calc(100% / 12 * 3);` ,
-  '.c4'   : b`max-width: calc(100% / 12 * 4);` ,
-  '.c5'   : b`max-width: calc(100% / 12 * 5);` ,
-  '.c6'   : b`max-width: calc(100% / 2);` ,
+  '.c1'   : b`max-width:calc(100%/12);` ,
+  '.c2'   : b`max-width:calc(100%/12*2);` ,
+  '.c3'   : b`max-width:calc(100%/12*3);` ,
+  '.c4'   : b`max-width:calc(100%/12*4);` ,
+  '.c5'   : b`max-width:calc(100%/12*5);` ,
+  '.c6'   : b`max-width:calc(100%/2);` ,
   
 })
 

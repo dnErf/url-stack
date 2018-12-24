@@ -13,8 +13,11 @@ Access the current origin's local storage space.
 #### [Mithril](https://mithril.js.org)
 A Javascript Framework for Building Brilliant Applications. It's small (< 8kb gzip), fast and provides routing and XHR utilities out of the box.
 
-#### [BSS](https://github.com/porsager/bss)
-Better Style Sheets(BSS) is a css-in-js framework taking components to the extreme. A simpler way to do CSS in Javascript directly on the elements you're styling. 
+#### [Marked](https://marked.js.org/)
+A markdown parser and compiler. Built for speed.
+
+#### [Class Func Style](https://github.com/dnErf/class-func-style)
+Utility for classNames/class and functional css styling 
 
 #### [Marked](https://marked.js.org/)
 A markdown parser and compiler. Built for speed.

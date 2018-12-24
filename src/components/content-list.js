@@ -21,6 +21,7 @@ function ContentList () {
         '-remove'       : b`float:right;` ,
         '-desc'         : b`background-color:#fcfcfc;font-size:1.6rem;` ,
         '-desc-input'   : b`resize:none;min-height:8rem;padding:.5rem;width:98%;` ,
+        // '-desc-text'    : b`` ,
         '-url'          : b`cursor:pointer;font-size:1.8rem;margin-left:1rem;` ,
       })
   const 
@@ -88,8 +89,9 @@ function ContentList () {
                       m('span.btn-i',[m('i.fas.fa-plus-circle.fr'),m.trust('<br/>')]) ,
                     ]
                   : [
-                      m('span.desc-text'
+                      m('span'
                       ,{
+                        ...fc('-desc-text') ,
                         'onclick' (e) {
                           e.preventDefault()
                           // txtDesc = e.target.textContent
