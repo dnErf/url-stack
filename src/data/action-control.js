@@ -1,5 +1,6 @@
 import {DataModel,StateModel} from './model-state'
 import marked from 'marked'
+import m from 'mithril'
 
 marked.setOptions({
   highlight: function(code) {
@@ -51,6 +52,20 @@ const ac = (function(dm,sm) {
       let
         ndata = dm(selectedData)
       data[selectedData].bookmarks = ndata[selectedData].bookmarks
+    } ,
+    test () {
+      // getting the title tag then getting the inside string
+      m.request({
+        method : 'GET' ,
+        url: 'https://www.npmjs.com/' ,
+        deserialize : function(value) {
+          console.log()
+          return value.match(/<title [^>]+>([^<]+)<\/title>/)[1]
+        }
+      })
+      .then((res)=>{
+        console.log(res)
+      })
     }
   }
 }(DataModel,StateModel))

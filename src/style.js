@@ -52,8 +52,7 @@ b.css({
   '.w-70'             : b`width:70%;` ,
   '.w-58'             : b`width:58%;` ,
   '.w-40'             : b`width:40%;` ,
-  '.content-between'  : b`align-items: middle;` ,
-  '.-tooltip'         : b`background:#0b85a2;border-radius:1rem 0;color:#effbfe;opacity:0;padding:5px 5px;position:absolute;transform:translateX(-60%) translateY(0);transition:all .2s ease;user-select:none;visibility:hidden;white-space:nowrap;` 
+  '.tooltip'         : b`background:#0b85a2;border-radius:1rem 0;color:#effbfe;opacity:0;padding:5px 5px;position:absolute;transform:translateX(-60%) translateY(0);transition:all .2s ease;user-select:none;visibility:hidden;white-space:nowrap;` 
 })
 
 // grid

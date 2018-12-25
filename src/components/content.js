@@ -12,32 +12,36 @@ function Content() {
     , set_toggle = false
     , fc = cfs({
         '-header'             : b`color:gray;margin-left:2rem;margin-right:4rem;` ,
-        '-i-bookmark-margin'  : b`margin-left:-8rem;margin-right:2rem;` ,
-        '-i-search-margin'    : b`margin-left:0rem;margin-right:2rem;` ,
+        '-txt-input'          : b`width:60%;padding-right:8rem;box-sizing:border-box;` ,
+        '-i-bookmark-margin'  : b`background-color:white;margin-left:-8rem;margin-right:2rem;` ,
+        '-i-search-margin'    : b`background-color:white;margin-left:0rem;margin-right:2rem;` ,
         '-i-settings-margin'  : b`margin-left:1rem;margin-right:1rem;` ,
+        '-btn-clear'          : b`min-width:6rem;`
+          .$media('(max-width:55rem)',b`display:none;opacity:0;`) ,
       })
 
   const 
     content = {}
   content.view = function(v) {
     let 
-      { add , clear , descMarked , search , remove , reset , model } = v.attrs
+      { add , clear , descMarked , search , remove , reset , test , model } = v.attrs
     return (
       m('.content.fcl',[
         // form -
-        m('.ctrl-.-form.bb.mv1.pv3.content-between', 
+        m('.ctrl-.-form.bb.mv1.pv3', 
           [ 
             m('span'
             ,{
               ...fc('-header') ,
               'onclick' (e) {
-                reset()
+                test()
               }
             },['URL Stack']) ,
             // [ textinput -
             m('span.mh3', [
-              m('input.itxt.mh3[type=text]'+b`width:60%;`
+              m('input.itxt.mh3[type=text]'
               ,{
+                ...fc('-txt-input') ,
                 'name':'txtInput' ,
                 'value':txtInput ,
                 'placeholder':'add or search url ...' ,
@@ -71,8 +75,9 @@ function Content() {
               ])
             ]) ,
             // - textinput ]
-            m('button.btn.mh3'+b`min-width:8rem;`
+            m('button.btn.mh3'
             ,{
+              ...fc('-btn-clear') ,
               'onclick' (e) {
                 clear()
               }

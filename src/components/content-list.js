@@ -13,22 +13,28 @@ function ContentList () {
     , htmlDesc = ''
     , txtIndx = null 
     , fc = cfs({
-        '-item': b`line-height:4rem;vertical-align:middle;margin:1rem;padding:1rem;`
+        '-item': b`line-height:4rem;vertical-align:middle;margin:1rem;padding:1rem;width:inherit;`
           .$hover(`
               background-color: #fbfbfb;
           `) ,
         '-item-border'  : b`border-style:solid;border-color:gray;border-width:.5px .2rem .5px .2rem;` ,
-        '-remove'       : b`float:right;` ,
+        // '-remove'       : b`float:right;` ,
         '-desc'         : b`background-color:#fcfcfc;font-size:1.6rem;` ,
         '-desc-input'   : b`resize:none;min-height:8rem;padding:.5rem;width:98%;` ,
         // '-desc-text'    : b`` ,
         '-url'          : b`cursor:pointer;font-size:1.8rem;margin-left:1rem;` ,
+        '-url-span'     : b`margin-right:auto;text-overflow:ellipsis;overflow:hidden;white-space:pre;`
+          .$media('(max-width:60rem)',b`max-width:58rem;`)  
+          .$media('(max-width:30rem)',b`max-width:28rem;`) 
+          .$media('(max-width:26rem)',b`width:24rem;`) ,
       })
+    , ow = 320
   const 
     ContentList = {}
   ContentList.view = function(v) {
     let 
-      { bookmarks , descMarked , remove} = v.attrs   
+      { bookmarks , descMarked , remove} = v.attrs
+         
     return (
       // [ list -
       m('.dsply-.-list',[
@@ -43,7 +49,7 @@ function ContentList () {
             htmlDesc = value.description
           }
           return m.fragment({key:indx},[
-            m('div', { ...fc('-item','-item-border','ba','mv3') , 'data-id':indx } , [
+            m('div.fbx', { ...fc('-item','-item-border','ba','mv3') , 'data-id':indx } , [
               m('span.btn-i',
               {
                 onclick (e) {
@@ -57,7 +63,14 @@ function ContentList () {
                   txtIndx = indx
                 }
               },[m('i.fas ',collapse)]) ,
-              m('span.mh3.mv1',[m(`a[href=${value.url}][target=blank]`,{...fc('-url')},[value.url])]) ,
+              m('span.mh3.mv1',{...fc('-url-span')}
+              ,[
+                m(`a[href=${value.url}][target=blank]`
+                ,{
+                  ...fc('-url')
+                }
+                ,[value.url])
+              ]) ,
               m('span.btn-i'
               ,{
                 ...fc('-remove') ,

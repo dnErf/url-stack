@@ -6,7 +6,7 @@ let
   fc = cfs({
     '-tooltip-wrap' : b`display:inline-block;position:relative;` 
       .$nest(
-        '&:hover .-tooltip', b`opacity:1;transform:translateX(-100%) translateY(3rem);transition:all .3s ease .5s;visibility:visible;
+        '&:hover .tooltip', b`opacity:1;transform:translateX(-100%) translateY(3rem);transition:all .3s ease .5s;visibility:visible;
       `) ,
   })
 
@@ -16,7 +16,7 @@ const ToolTip = {
   } ,
   view (v) {
     let { tip } = v.attrs
-    return m('span',{...fc('-tooltip')},tip)
+    return m('span',{...fc('tooltip')},tip)
   }
 }
 
