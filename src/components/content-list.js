@@ -13,22 +13,20 @@ function ContentList () {
     , htmlDesc = ''
     , txtIndx = null 
     , fc = cfs({
-        '-item': b`line-height:4rem;vertical-align:middle;margin:1rem;padding:1rem;width:inherit;`
+        '-desc'         : b`padding:1rem 2rem;margin-top:-1rem;border-style:solid;border-color:gray;border-width:0px .2rem .5px .2rem;background-color:#fcfcfc;font-size:1.6rem;` ,
+        '-desc-input'   : b`resize:none;min-height:8rem;padding:.5rem;width:98%;` ,
+        '-item': b`align-items:center;line-height:2rem;vertical-align:middle;margin:1rem;padding:1rem;width:inherit;`
           .$hover(`
               background-color: #fbfbfb;
           `) ,
         '-item-border'  : b`border-style:solid;border-color:gray;border-width:.5px .2rem .5px .2rem;` ,
-        // '-remove'       : b`float:right;` ,
-        '-desc'         : b`background-color:#fcfcfc;font-size:1.6rem;` ,
-        '-desc-input'   : b`resize:none;min-height:8rem;padding:.5rem;width:98%;` ,
-        // '-desc-text'    : b`` ,
+        '-remove'       : b`margin-left:auto;` ,
         '-url'          : b`cursor:pointer;font-size:1.8rem;margin-left:1rem;` ,
         '-url-span'     : b`margin-right:auto;text-overflow:ellipsis;overflow:hidden;white-space:pre;`
           .$media('(max-width:60rem)',b`max-width:58rem;`)  
           .$media('(max-width:30rem)',b`max-width:28rem;`) 
           .$media('(max-width:26rem)',b`width:24rem;`) ,
       })
-    , ow = 320
   const 
     ContentList = {}
   ContentList.view = function(v) {
@@ -53,7 +51,6 @@ function ContentList () {
               m('span.btn-i',
               {
                 onclick (e) {
-                  e.preventDefault()
                   if (txtIndx === indx) {
                     collapse_toggle = !collapse_toggle
                   }
@@ -79,8 +76,14 @@ function ContentList () {
                   remove(indx)
                 }
               },[m('i.fas.fa-trash-alt'),m(ToolTip,{'tip':'remove'})]) ,
-              collapse_value && collapse_toggle
-                ? m('.desc',{...fc('-desc','ma3','pa3')},
+              
+              // previous line of collapse - remove to fix the remove alignment to the end
+
+            ]) ,
+
+            // [ collapse -
+            collapse_value && collapse_toggle
+                ? m('div',{...fc('-desc','ma3')},
                   desc_toggle && indx === txtIndx
                   ? [
                       // m('span.btn-i',[m('i.fab.fa-markdown')]) ,
@@ -95,7 +98,6 @@ function ContentList () {
                           desc_toggle = !desc_toggle
                         } ,
                         'onkeyup' (e) {
-                          e.preventDefault()
                           txtDesc = e.target.value
                         }
                       }) ,
@@ -115,7 +117,8 @@ function ContentList () {
                     ]
                 ) 
               : null
-            ])
+              // - collapse ]
+
           ])
         })
       ])
