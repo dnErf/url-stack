@@ -12,10 +12,10 @@ const ac = (function(dm,sm) {
   let 
     data = dm()
     , state = sm()
-    // , selectedData = 'hrext'
+    , selectedData = 'hrext'
     // , model = data[selectedData]
-    , selectedData
-    , model
+    // , selectedData
+    , model // to be removed
     , stringe = ''
     , updateLocalStorage = function() {
       stringe = JSON.stringify(data)
@@ -58,6 +58,10 @@ const ac = (function(dm,sm) {
         ndata = dm()
       data[selectedData].bookmarks = ndata[selectedData].bookmarks
     } ,
+    switchData (targetData) {
+      selectedData = targetData
+      this.model = data[selectedData]
+    } ,
     newCategory (category) {
       data[category] = {
         "bookmarks" : [] ,
@@ -78,8 +82,9 @@ const ac = (function(dm,sm) {
       .then((res) => {
         localStorage.setItem('H06',JSON.stringify(res))
         data = JSON.parse(localStorage.getItem('H06'))
-        this.data = JSON.parse(localStorage.getItem('H06'))
-        m.redraw()
+        this.switchData('hrext')
+        // this.data = JSON.parse(localStorage.getItem('H06'))
+        // m.redraw()
       })
     } ,
     test () {

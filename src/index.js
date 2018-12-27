@@ -30,10 +30,11 @@ m.route(document.body, '/hrext', {
         ac.fetchData()
       }
       else {
-        ac.selectedData = args.data
-        ac.model = ac.data[ac.selectedData]
-        ac.reset()
+        ac.switchData(args.data)
       }
+      // ac.selectedData = args.data
+      // ac.model = ac.data[ac.selectedData]
+      // ac.reset()
     } ,
     render (v) {
       return m('.app.fbx', [
