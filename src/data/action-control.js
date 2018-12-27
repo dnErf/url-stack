@@ -54,6 +54,7 @@ const ac = (function(dm,sm) {
     } ,
     reset () {
       if (selectedData===undefined) selectedData = this.selectedData
+      if (data[selectedData] === null || data[selectedData] === undefined) selectedData = 'hrext'
       let
         ndata = dm()
       data[selectedData].bookmarks = ndata[selectedData].bookmarks
@@ -73,6 +74,8 @@ const ac = (function(dm,sm) {
     deleteCategory (category) {
       delete data[category]
       updateLocalStorage()
+      // ac.reset()
+      m.route.set('/hrext')
     } ,
     fetchData () {
       return m.request({
