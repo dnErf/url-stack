@@ -1,7 +1,13 @@
 {
-  "hrext" : {
-    "bookmarks" : ["hello"] ,
-    "notes" : "hi" ,
-    "slug" : "hrext"
+  "hrext":{
+    "bookmarks":[
+      {
+        "title" : "" ,
+        "url":"https://dnerf.github.io/url-stack/",
+        "description":"<h2 id=\"url-stack-uses-markdown-\">URL Stack Uses Markdown?</h2>\n<br/>\nYes, because it's not overly bloated for a quick app. And can be formatted in many ways.\n\n<p><br/><br/></p>\n<p>It can give you a todo list:\n<br/><br/></p>\n<ul>\n<li><input checked=\"\" disabled=\"\" type=\"checkbox\"> i&#39;m not yet done!</li>\n</ul>\n<p><br/><br/></p>\n<p>You can have nice formatting on your quick take away code on the link.\n<br/><br/></p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'Hello World'</span>)</code></pre>\n<p><br/><br/>\n<a href=\"https://github.com/markedjs/marked/\">Marked</a> is the parser used by this app. And all the things it can do is listed there.\n<br/><br/>\n<em>-be also aware that this textarea does not recognize new line-</em></p>\n","rawDesc":"URL Stack Uses Markdown?\n---\n<br/>\nYes, because it's not overly bloated for a quick app. And can be formatted in many ways.\n\n<br/><br/>\n\nIt can give you a todo list:\n<br/><br/>\n- [x] i'm not yet done!\n\n<br/><br/>\n\nYou can have nice formatting on your quick take away code on the link.\n<br/><br/>\n```javascript\nconsole.log('Hello World')\n```\n<br/><br/>\n[Marked](https://github.com/markedjs/marked/) is the parser used by this app. And all the things it can do is listed there.\n<br/><br/>\n*-be also aware that this textarea does not recognize new line-*"
+      }
+    ],
+    "notes":"",
+    "slug":"hrext"
   }
 }

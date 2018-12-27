@@ -12,16 +12,20 @@ const ac = (function(dm,sm) {
   let 
     data = dm()
     , state = sm()
-    , selectedData = 'hrext'
-    , model = data[selectedData]
+    // , selectedData = 'hrext'
+    // , model = data[selectedData]
+    , selectedData
+    , model
     , stringe = ''
     , updateLocalStorage = function() {
       stringe = JSON.stringify(data)
       localStorage.setItem('H06',stringe)
     }
   return {
+    data ,
     state ,
     model ,
+    selectedData ,
     add (url) {
       data[selectedData].bookmarks.push(url)
       updateLocalStorage()
@@ -49,9 +53,34 @@ const ac = (function(dm,sm) {
       updateLocalStorage()
     } ,
     reset () {
+      if (selectedData===undefined) selectedData = this.selectedData
       let
-        ndata = dm(selectedData)
+        ndata = dm()
       data[selectedData].bookmarks = ndata[selectedData].bookmarks
+    } ,
+    newCategory (category) {
+      data[category] = {
+        "bookmarks" : [] ,
+        "notes" : "" ,
+        "slug" : category.toLowerCase().replace(/\W/g,"-")
+      }
+      updateLocalStorage()
+    } ,
+    deleteCategory (category) {
+      delete data[category]
+      updateLocalStorage()
+    } ,
+    fetchData () {
+      return m.request({
+        method: 'GET' ,
+        url: './data.json' ,
+      })
+      .then((res) => {
+        localStorage.setItem('H06',JSON.stringify(res))
+        data = JSON.parse(localStorage.getItem('H06'))
+        this.data = JSON.parse(localStorage.getItem('H06'))
+        m.redraw()
+      })
     } ,
     test () {
       // getting the title tag then getting the inside string

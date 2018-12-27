@@ -57,9 +57,11 @@ function Content() {
               m('span.btn-i'
               ,{
                 ...fc('-i-bookmark-margin') ,
-                'onclick' (e) {
-                  add({'url':txtInput,'description':'','rawDesc':''})
-                  txtInput = ''
+                'onclick' (e) { 
+                  if (txtInput !== '') {
+                    add({'url':txtInput,'description':'','rawDesc':''})
+                    txtInput = ''
+                  }
                 }
               },[
                 m('i.far.fa-bookmark'),m(ToolTip,{'tip':'bookmark'})
