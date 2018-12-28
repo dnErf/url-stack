@@ -13,9 +13,7 @@ const ac = (function(dm,sm) {
     data = dm()
     , state = sm()
     , selectedData = 'hrext'
-    // , model = data[selectedData]
-    // , selectedData
-    , model // to be removed
+    , model 
     , stringe = ''
     , updateLocalStorage = function() {
       stringe = JSON.stringify(data)
@@ -74,7 +72,7 @@ const ac = (function(dm,sm) {
     deleteCategory (category) {
       delete data[category]
       updateLocalStorage()
-      // ac.reset()
+      /** send back to the default route */
       m.route.set('/hrext')
     } ,
     fetchData () {
@@ -86,8 +84,6 @@ const ac = (function(dm,sm) {
         localStorage.setItem('H06',JSON.stringify(res))
         data = JSON.parse(localStorage.getItem('H06'))
         this.switchData('hrext')
-        // this.data = JSON.parse(localStorage.getItem('H06'))
-        // m.redraw()
       })
     } ,
     test () {

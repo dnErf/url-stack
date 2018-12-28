@@ -40,10 +40,10 @@ function ContentList () {
           let 
             collapse_value = indx === txtIndx
             , collapse = fc({
-              'fa-chevron-circle-down' : collapse_value && collapse_toggle ,
+              'fa-chevron-circle-down'  : collapse_value && collapse_toggle ,
               'fa-chevron-circle-right' : !(collapse_value && collapse_toggle)
             })
-          if (value.description!=='') {
+          if (value.description !== '') {
             htmlDesc = value.description
           }
           return m.fragment({key:indx},[
@@ -51,21 +51,15 @@ function ContentList () {
               m('span.btn-i',
               {
                 onclick (e) {
-                  if (txtIndx === indx) {
-                    collapse_toggle = !collapse_toggle
-                  }
-                  else {
-                    collapse_toggle = true
-                  }
+                  if (txtIndx === indx) { collapse_toggle = !collapse_toggle }
+                  else { collapse_toggle = true }
                   txtIndx = indx
                 }
               },[m('i.fas ',collapse)]) ,
               m('span.mh3.mv1',{...fc('-url-span')}
               ,[
                 m(`a[href=${value.url}][target=blank]`
-                ,{
-                  ...fc('-url')
-                }
+                ,{ ...fc('-url') }
                 ,[value.url])
               ]) ,
               m('span.btn-i'
@@ -86,7 +80,6 @@ function ContentList () {
                 ? m('div',{...fc('-desc','ma3')},
                   desc_toggle && indx === txtIndx
                   ? [
-                      // m('span.btn-i',[m('i.fab.fa-markdown')]) ,
                       m(MarkdownHelp) ,
                       m('textarea',
                       {
@@ -109,7 +102,6 @@ function ContentList () {
                         ...fc('-desc-text') ,
                         'onclick' (e) {
                           e.preventDefault()
-                          // txtDesc = e.target.textContent
                           txtDesc = value.rawDesc
                           desc_toggle = !desc_toggle
                         }
