@@ -22,10 +22,10 @@ function ContentList () {
         '-item-border'  : b`border-style:solid;border-color:gray;border-width:.5px .2rem .5px .2rem;` ,
         '-remove'       : b`margin-left:auto;` ,
         '-url'          : b`cursor:pointer;font-size:1.8rem;margin-left:1rem;` ,
-        '-url-span'     : b`margin-right:auto;text-overflow:ellipsis;overflow:hidden;white-space:pre;`
-          .$media('(max-width:60rem)',b`max-width:58rem;`)  
-          .$media('(max-width:30rem)',b`max-width:28rem;`) 
-          .$media('(max-width:26rem)',b`width:24rem;`) ,
+        '-url-span'     : b`max-width:76rem;margin-right:auto;text-overflow:ellipsis;overflow:hidden;white-space:pre;`
+          .$media('(max-width:60em)',b`max-width:56rem;`)  
+          .$media('(max-width:30em)',b`max-width:28rem;`) 
+          .$media('(max-width:26em)',b`width:24rem;`) ,
       })
   const 
     ContentList = {}

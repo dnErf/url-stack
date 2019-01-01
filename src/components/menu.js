@@ -1,13 +1,7 @@
+
 import m from 'mithril'
 import b from 'bss'
 import cfs from 'class-func-style'
-
-// menu - to be removed on next clean up
-// b.css({
-//   '.menu' : b`width:16rem;padding:2rem;background-color:#0d98ba;` , // hover #0a718a
-//   '.menu-header'       : b`color:#effbfe;` ,
-//   '.menu-header:hover' : b`background-color:#0b85a2;opacity:.9;` ,
-// })
 
 let 
   fc = cfs({
@@ -19,6 +13,26 @@ let
     '-menu' : b`width:22rem;padding:2rem 1rem;background-color:#0d98ba;` 
       .$media('(max-width:55rem)',b`display:none;`), // hover #0a718a
   })
+  
+  , anchor = (category) => m('a'
+    ,{id:`${category}` 
+      ,onclick (e) {
+        e.preventDefault()
+        m.route.set(`/${category}`)
+      }
+    },`# ${category}`)
+
+  , spn_btn = deleteCategory => m('span.btn-i'+b`font-size:1.6rem;`
+    ,{
+      onclick(e) {
+        let targetCategory = e.target.parentElement.previousSibling.id
+        if (targetCategory !== 'hrext') {
+          deleteCategory(targetCategory)
+        }
+      }
+    }
+    ,[[m('i.fas.fa-times-circle')]])
+
 const Menu = {
   view (v) {
     let { categories , deleteCategory , newCategory } = v.attrs
@@ -40,26 +54,7 @@ const Menu = {
         m('div',[
           categories.map((category) =>{
             return m('span',{...fc('-category-list','-link')}
-              ,[
-                m('a'
-                ,{
-                  id:`${category}` ,
-                  onclick (e) {
-                    e.preventDefault()
-                    m.route.set(`/${category}`)
-                  }
-                },`# ${category}`) ,
-                m('span.btn-i'+b`font-size:1.6rem;`
-                ,{
-                  onclick(e) {
-                    let targetCategory = e.target.parentElement.previousSibling.id
-                    if (targetCategory !== 'hrext') {
-                      deleteCategory(targetCategory)
-                    }
-                  }
-                }
-                ,[[m('i.fas.fa-times-circle')]]) ,
-              ]) 
+              ,[anchor(category),spn_btn(deleteCategory)]) 
           })
         ])
       ]
@@ -68,3 +63,36 @@ const Menu = {
 }
 
 export default Menu
+
+// menu - to be removed on next clean up
+// b.css({
+//   '.menu' : b`width:16rem;padding:2rem;background-color:#0d98ba;` , // hover #0a718a
+//   '.menu-header'       : b`color:#effbfe;` ,
+//   '.menu-header:hover' : b`background-color:#0b85a2;opacity:.9;` ,
+// })
+
+// m('div',[
+//   categories.map((category) =>{
+//     return m('span',{...fc('-category-list','-link')}
+//       ,[
+//         m('a'
+//         ,{
+//           id:`${category}` ,
+//           onclick (e) {
+//             e.preventDefault()
+//             m.route.set(`/${category}`)
+//           }
+//         },`# ${category}`) ,
+//         m('span.btn-i'+b`font-size:1.6rem;`
+//         ,{
+//           onclick(e) {
+//             let targetCategory = e.target.parentElement.previousSibling.id
+//             if (targetCategory !== 'hrext') {
+//               deleteCategory(targetCategory)
+//             }
+//           }
+//         }
+//         ,[[m('i.fas.fa-times-circle')]]) ,
+//       ]) 
+//   })
+// ])

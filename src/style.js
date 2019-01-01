@@ -14,7 +14,7 @@ b.css({
 //content
 b.css({
   '.app'      : b`display:flex;flex-direction:row;width:100%;height:100%;` ,
-  '.content'  : b`width:100%;padding:1.5rem;` ,
+  '.content'  : b`width:100%;padding:.2rem;` ,
   '.tooltip'  : b`background:#0b85a2;border-radius:1rem 0;color:#effbfe;opacity:0;padding:5px 5px;position:absolute;transform:translateX(-60%) translateY(0);transition:all .2s ease;user-select:none;visibility:hidden;white-space:nowrap;` 
 })
 
